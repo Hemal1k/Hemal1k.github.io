@@ -27,14 +27,9 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
 
-header.top { border-bottom: 1px solid var(--line); }
-header.top .wrap { display: flex; align-items: center; gap: 16px; height: 60px; }
-header.top .brand { font-weight: 600; color: var(--text); font-size: 17px; }
-header.top nav { margin-left: auto; display: flex; gap: 6px; align-items: center; }
-header.top nav a { color: var(--dim); padding: 6px 10px; border-radius: 8px; }
-header.top nav a:hover { background: var(--surface-2); color: var(--text); text-decoration: none; }
 
-.hero { padding: 64px 0 40px; }
+.hero { padding: 56px 0 40px; }
+.hero-split { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; justify-content: space-between; }
 .hero h1 { font-size: clamp(32px, 6vw, 48px); line-height: 1.15; margin: 0 0 12px; font-weight: 600; letter-spacing: -0.01em; }
 .hero p.lead { font-size: 19px; color: var(--dim); max-width: 680px; margin: 0; }
 .hero .app { display: flex; gap: 20px; align-items: center; margin-bottom: 18px; }
@@ -47,6 +42,9 @@ header.top nav a:hover { background: var(--surface-2); color: var(--text); text-
 .btn.primary { background: var(--accent-strong); border-color: var(--accent-strong); color: #fff; }
 .btn.primary:hover { filter: brightness(1.08); background: var(--accent-strong); }
 .btn small { font-weight: 400; opacity: .8; }
+.btn.gh { margin-left: auto; }
+.hero-split .btn.gh { margin-left: 0; }
+@media (max-width: 600px) { .btn.gh { margin-left: 0; } }
 .note { color: var(--dim); font-size: 14px; margin-top: 14px; }
 
 .shot { margin: 28px 0 8px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
