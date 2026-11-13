@@ -28,8 +28,6 @@
     <div class="grid">
       <div class="card"><h3>Free and open source</h3><p>Every line of code is public on GitHub under the MIT license. No paid versions, no locked features.</p></div>
       <div class="card"><h3>No ads, no tracking</h3><p>No analytics, no telemetry, no accounts. Nothing about you or how you use the apps is collected or sent anywhere.</p></div>
-      <div class="card"><h3>Only for your account</h3><p>The installers put the apps into your own user folder – no administrator rights, no system services, nothing that runs for other users.</p></div>
-      <div class="card"><h3>Clean to remove</h3><p>Uninstall in Windows Settings → Apps. The uninstaller also removes the File Explorer items and the start-up entries the apps made.</p></div>
     </div>
   </section>
 
@@ -60,7 +58,7 @@
       <tr><td>HeMiDock</td><td><code>%AppData%\HeMiDock</code> – settings, pinned apps, workspaces, backups of the settings and a log of errors (for you, it is not sent anywhere).</td></tr>
       <tr><td>HeMiPad</td><td><code>%AppData%\HeMiPad\settings.ini</code></td></tr>
       <tr><td>HeMiUnlocker</td><td>Keeps no settings; only the optional File Explorer item is written to <code>HKCU\Software\Classes</code>.</td></tr>
-      <tr><td>The programs</td><td><code>%LocalAppData%\Programs\&lt;app&gt;</code> when installed; the portable versions run from any folder.</td></tr>
+      <tr><td>The programs</td><td>The installer asks: just for you (<code>%LocalAppData%\Programs</code>, no administrator rights) or for all users (<code>Program Files</code>). The portable versions run from any folder.</td></tr>
     </table>
   </section>
 
