@@ -3,13 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HeMiDock</title>
-  <meta name="title-en" content="HeMiDock – a taskbar replacement for Windows">
-  <meta name="title-cs" content="HeMiDock – náhrada hlavního panelu Windows">
+  <title>HeMiDock – a taskbar replacement for Windows</title>
   <meta name="description" content="HeMiDock: a dock, Start menu, control center and window manager in place of the Windows taskbar. Free, open source.">
   <link rel="icon" href="assets/hemidock.png">
   <link rel="stylesheet" href="assets/style.css">
-  <script src="assets/lang.js"></script>
 </head>
 <body>
 <header class="top">
@@ -17,8 +14,7 @@
     <a class="brand" href="./">HeMi</a>
     <nav>
       <a href="https://github.com/Hemal1k/HeMiDock">GitHub</a>
-      <a href="https://github.com/Hemal1k/HeMiDock/releases"><span data-lang-en>Releases</span><span data-lang-cs>Vydání</span></a>
-      <div class="lang"><button data-set="cs" aria-pressed="false">CZ</button><button data-set="en" aria-pressed="false">EN</button></div>
+      <a href="https://github.com/Hemal1k/HeMiDock/releases">Releases</a>
     </nav>
   </div>
 </header>
@@ -29,62 +25,42 @@
       <img src="assets/hemidock.png" alt="">
       <h1>HeMiDock<span class="beta">Beta</span></h1>
     </div>
-    <p class="lead" data-lang-en>A replacement of the Windows taskbar: a dock with your apps, the notification area, status icons and the clock – with its own Start menu, control center, calendar and window manager.</p>
-    <p class="lead" data-lang-cs>Náhrada hlavního panelu Windows: dock s aplikacemi, oznamovací oblastí, stavovými ikonami a hodinami – s vlastní nabídkou Start, ovládacím centrem, kalendářem a správcem oken.</p>
+    <p class="lead">A replacement of the Windows taskbar: a dock with your apps, the notification area, status icons and the clock – with its own Start menu, control center, calendar and window manager.</p>
     <div class="buttons">
-      <a class="btn primary" href="https://github.com/Hemal1k/HeMiDock/releases/latest/download/HeMiDock-Setup.exe">
-        <span data-lang-en>Download installer</span><span data-lang-cs>Stáhnout instalátor</span> <small>.exe</small></a>
-      <a class="btn" href="https://github.com/Hemal1k/HeMiDock/releases/latest/download/HeMiDock-Portable.zip">
-        <span data-lang-en>Portable</span><span data-lang-cs>Přenosná verze</span> <small>.zip</small></a>
+      <a class="btn primary" href="https://github.com/Hemal1k/HeMiDock/releases/latest/download/HeMiDock-Setup.exe">Download installer <small>.exe</small></a>
+      <a class="btn" href="https://github.com/Hemal1k/HeMiDock/releases/latest/download/HeMiDock-Portable.zip">Portable <small>.zip</small></a>
     </div>
-    <p class="note" data-lang-en>Windows 10 2004 or newer / Windows 11, x64. The installer downloads the .NET 10 Runtime and the Windows App Runtime when they are missing; HeMiDock then updates itself. It is not signed yet – SmartScreen may warn the first time (More info → Run anyway).</p>
-    <p class="note" data-lang-cs>Windows 10 2004 nebo novější / Windows 11, x64. Instalátor sám stáhne .NET 10 Runtime a Windows App Runtime, pokud chybí; HeMiDock se pak aktualizuje sám. Zatím není podepsaný – SmartScreen může poprvé varovat (Další informace → Přesto spustit).</p>
+    <p class="note">Windows 10 2004 or newer / Windows 11, x64. The installer downloads the .NET 10 Runtime and the Windows App Runtime when they are missing; HeMiDock then updates itself. Czech and English.</p>
     <div class="shot"><img src="assets/hemidock-dock.png" alt="HeMiDock" width="1020" height="90"></div>
   </div>
 
   <section>
-    <h2><span data-lang-en>What it does</span><span data-lang-cs>Co umí</span></h2>
+    <h2>What it does</h2>
     <div class="grid">
-      <div class="card"><h3>Dock</h3>
-        <p data-lang-en>At any edge of the screen: pinned and running apps with window previews, magnification, the notification area, virtual desktops, Recycle Bin and Downloads.</p>
-        <p data-lang-cs>U kteréhokoli okraje obrazovky: připnuté a spuštěné aplikace s náhledy oken, zvětšení pod myší, oznamovací oblast, virtuální plochy, Koš a Stažené soubory.</p></div>
-      <div class="card"><h3><span data-lang-en>Start menu</span><span data-lang-cs>Nabídka Start</span></h3>
-        <p data-lang-en>Three looks, pinned apps in groups, all apps, and a search of apps, settings, files and calculations. Quick search with Alt + Space.</p>
-        <p data-lang-cs>Tři vzhledy, připnuté aplikace ve skupinách, všechny aplikace a hledání aplikací, nastavení, souborů i výpočtů. Rychlé hledání přes Alt + mezerník.</p></div>
-      <div class="card"><h3><span data-lang-en>Control center</span><span data-lang-cs>Ovládací centrum</span></h3>
-        <p data-lang-en>Quick buttons, sound with a mixer of apps, brightness, power mode, media, Wi-Fi, Bluetooth and keep awake.</p>
-        <p data-lang-cs>Rychlá tlačítka, zvuk se směšovačem aplikací, jas, režim napájení, média, Wi-Fi, Bluetooth a režim „nevypínat“.</p></div>
-      <div class="card"><h3><span data-lang-en>Status icons</span><span data-lang-cs>Stavové ikony</span></h3>
-        <p data-lang-en>Network, Bluetooth, volume, battery, Windows Security, updates waiting, and signs when an app uses the microphone, camera or location.</p>
-        <p data-lang-cs>Síť, Bluetooth, hlasitost, baterie, Zabezpečení Windows, čekající aktualizace a upozornění, když aplikace používá mikrofon, kameru nebo polohu.</p></div>
-      <div class="card"><h3><span data-lang-en>Calendar</span><span data-lang-cs>Kalendář</span></h3>
-        <p data-lang-en>The notifications of Windows at the clock, a calendar with week numbers and events from Outlook or an internet calendar.</p>
-        <p data-lang-cs>Oznámení Windows u hodin, kalendář s čísly týdnů a událostmi z Outlooku nebo internetového kalendáře.</p></div>
-      <div class="card"><h3><span data-lang-en>Window manager</span><span data-lang-cs>Správce oken</span></h3>
-        <p data-lang-en>Zones to snap windows into, always on top, workspaces that open your apps in their places, rules for apps.</p>
-        <p data-lang-cs>Zóny pro rozmístění oken, okno vždy navrchu, pracovní plochy, které otevřou aplikace na jejich místech, pravidla pro aplikace.</p></div>
-      <div class="card"><h3><span data-lang-en>Top bar</span><span data-lang-cs>Horní lišta</span></h3>
-        <p data-lang-en>Optional, like macOS: the system menu, the active app, now playing, status icons and the clock.</p>
-        <p data-lang-cs>Volitelná, jako v macOS: systémová nabídka, aktivní aplikace, právě hraje, stavové ikony a hodiny.</p></div>
-      <div class="card"><h3><span data-lang-en>Made your way</span><span data-lang-cs>Po svém</span></h3>
-        <p data-lang-en>Keyboard shortcuts for every action, light and dark, own colours, settings with search, backups – in Czech and English.</p>
-        <p data-lang-cs>Klávesové zkratky pro každou akci, světlý i tmavý vzhled, vlastní barvy, nastavení s hledáním, zálohy – česky i anglicky.</p></div>
+      <div class="card"><h3>Dock</h3><p>At any edge of the screen: pinned and running apps with window previews, magnification, the notification area, virtual desktops, Recycle Bin and Downloads.</p></div>
+      <div class="card"><h3>Start menu</h3><p>Three looks, pinned apps in groups, all apps, and a search of apps, settings, files and calculations. Quick search with Alt + Space.</p></div>
+      <div class="card"><h3>Control center</h3><p>Quick buttons, sound with a mixer of apps, brightness, power mode, media, Wi-Fi, Bluetooth and keep awake.</p></div>
+      <div class="card"><h3>Status icons</h3><p>Network, Bluetooth, volume, battery, Windows Security, updates waiting, and signs when an app uses the microphone, camera or location.</p></div>
+      <div class="card"><h3>Calendar</h3><p>The notifications of Windows at the clock, a calendar with week numbers and events from Outlook or an internet calendar.</p></div>
+      <div class="card"><h3>Window manager</h3><p>Zones to snap windows into, always on top, workspaces that open your apps in their places, rules for apps.</p></div>
+      <div class="card"><h3>Top bar</h3><p>Optional, like macOS: the system menu, the active app, now playing, status icons and the clock.</p></div>
+      <div class="card"><h3>Made your way</h3><p>Keyboard shortcuts for every action, light and dark, own colours, settings with search and backups.</p></div>
     </div>
   </section>
 
   <section>
-    <h2><span data-lang-en>Downloads</span><span data-lang-cs>Ke stažení</span></h2>
+    <h2>Downloads</h2>
     <table class="req">
-      <tr><td>HeMiDock-Setup.exe</td><td><span data-lang-en>The installer, for most people: installs for your account, gets what is missing, updates come by themselves.</span><span data-lang-cs>Instalátor, pro většinu lidí: instaluje pro tvůj účet, doplní, co chybí, aktualizace přijdou samy.</span></td></tr>
-      <tr><td>HeMiDock-Portable.zip</td><td><span data-lang-en>Runs from any folder without installing anything (bigger, updates by hand).</span><span data-lang-cs>Běží z libovolné složky bez instalace (větší, aktualizace ručně).</span></td></tr>
-      <tr><td><span data-lang-en>Changes</span><span data-lang-cs>Změny</span></td><td><a href="https://github.com/Hemal1k/HeMiDock/releases"><span data-lang-en>All releases with their notes</span><span data-lang-cs>Všechna vydání s popisem změn</span></a></td></tr>
-      <tr><td><span data-lang-en>Problems, ideas</span><span data-lang-cs>Problémy, nápady</span></td><td><a href="https://github.com/Hemal1k/HeMiDock/issues">GitHub Issues</a></td></tr>
+      <tr><td>HeMiDock-Setup.exe</td><td>The installer, for most people: installs for your account, gets what is missing, updates come by themselves.</td></tr>
+      <tr><td>HeMiDock-Portable.zip</td><td>Runs from any folder without installing anything (bigger, updates by hand).</td></tr>
+      <tr><td>Changes</td><td><a href="https://github.com/Hemal1k/HeMiDock/releases">All releases with their notes</a></td></tr>
+      <tr><td>Problems, ideas</td><td><a href="https://github.com/Hemal1k/HeMiDock/issues">GitHub Issues</a></td></tr>
     </table>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">© 2026 Richard Hemala · <a href="https://github.com/Hemal1k/HeMiDock/blob/main/LICENSE">MIT</a> · <a href="./"><span data-lang-en>Other projects</span><span data-lang-cs>Další projekty</span></a></div>
+  <div class="wrap">© 2026 Richard Hemala · <a href="https://github.com/Hemal1k/HeMiDock/blob/main/LICENSE">MIT</a> · <a href="code-signing.html">Code signing policy</a> · <a href="./">Other apps</a></div>
 </footer>
 </body>
 </html>

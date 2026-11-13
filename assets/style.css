@@ -33,9 +33,6 @@ header.top .brand { font-weight: 600; color: var(--text); font-size: 17px; }
 header.top nav { margin-left: auto; display: flex; gap: 6px; align-items: center; }
 header.top nav a { color: var(--dim); padding: 6px 10px; border-radius: 8px; }
 header.top nav a:hover { background: var(--surface-2); color: var(--text); text-decoration: none; }
-.lang { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-.lang button { background: none; border: 0; color: var(--dim); padding: 5px 10px; font: inherit; font-size: 13px; cursor: pointer; }
-.lang button[aria-pressed="true"] { background: var(--surface-2); color: var(--text); }
 
 .hero { padding: 64px 0 40px; }
 .hero h1 { font-size: clamp(32px, 6vw, 48px); line-height: 1.15; margin: 0 0 12px; font-weight: 600; letter-spacing: -0.01em; }
@@ -75,5 +72,6 @@ table.req td:first-child { color: var(--dim); width: 34%; padding-right: 16px; }
 
 footer { border-top: 1px solid var(--line); color: var(--dim); font-size: 14px; padding: 26px 0 40px; margin-top: 30px; }
 
-[data-lang-cs], [data-lang-en] { display: none; }
-html[lang="cs"] [data-lang-cs], html[lang="en"] [data-lang-en] { display: revert; }
+.prose { max-width: 760px; }
+.prose h2 { margin-top: 30px; }
+.prose li { margin: 4px 0; }
