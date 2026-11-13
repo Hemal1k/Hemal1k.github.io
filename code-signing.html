@@ -4,6 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Code signing policy – HeMi</title>
+  <meta name="description" content="The code signing policy of the HeMi apps: what is signed, who approves it, and what the apps send over the internet.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HeMi">
+  <meta property="og:title" content="Code signing policy – HeMi">
+  <meta property="og:description" content="The code signing policy of the HeMi apps: what is signed, who approves it, and what the apps send over the internet.">
+  <meta property="og:url" content="https://hemal1k.github.io/code-signing.html">
+  <meta property="og:image" content="https://hemal1k.github.io/assets/og-hemi.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/hemidock.png">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -17,7 +26,7 @@
 <main class="wrap prose">
   <div class="hero">
     <h1>Code signing policy</h1>
-    <p class="lead">For HeMiDock, HeMiUnlocker, HeMiPad and HeMi Dark.</p>
+    <p class="lead">For HeMiDock, HeMiUnlocker and HeMiPad.</p>
   </div>
 
   <p>Free code signing provided by <a href="https://about.signpath.io">SignPath.io</a>, certificate by <a href="https://signpath.org">SignPath Foundation</a>.</p>
@@ -25,9 +34,8 @@
   <h2>What is signed</h2>
   <p>Only the installers and programs released on the GitHub pages of these projects
     (<a href="https://github.com/Hemal1k/HeMiDock/releases">HeMiDock</a>,
-    <a href="https://github.com/Hemal1k/HeMiUnlocker/releases">HeMiUnlocker</a>,
-    <a href="https://github.com/Hemal1k/HeMiPad/releases">HeMiPad</a>,
-    <a href="https://github.com/Hemal1k/HeMiDark/releases">HeMi Dark</a>).
+    <a href="https://github.com/Hemal1k/HeMiUnlocker/releases">HeMiUnlocker</a> and
+    <a href="https://github.com/Hemal1k/HeMiPad/releases">HeMiPad</a>).
     They are built by GitHub Actions from the public source code of each repository; nothing built elsewhere is signed.</p>
 
   <h2>Team roles</h2>
@@ -38,7 +46,7 @@
   <p>Every signing request is approved by hand. The accounts use multi-factor authentication on GitHub and SignPath.</p>
 
   <h2>Privacy policy</h2>
-  <p>HeMiUnlocker, HeMiPad and HeMi Dark do not connect to the internet. HeMiDock connects only to:</p>
+  <p>HeMiUnlocker and HeMiPad do not connect to the internet. HeMiDock connects only to:</p>
   <ul>
     <li>GitHub – to look for a new version (can be switched off in Settings → About);</li>
     <li>Open-Meteo – for the weather, only when the weather is switched on (the name of the chosen city is sent);</li>
