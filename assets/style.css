@@ -85,3 +85,62 @@ table.req ul { margin: 6px 0 0; padding-left: 20px; }
 .app-card .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; }
 .btn.small { padding: 7px 12px; font-size: 14px; border-radius: 8px; }
 .app-card .more { margin-left: auto; font-size: 14px; }
+/* ───── the top bar ───── */
+.topbar { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px);
+  background: color-mix(in srgb, var(--bg) 72%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; font-size: 17px; }
+.brand img { width: 26px; height: 26px; }
+.brand:hover { text-decoration: none; }
+.topbar nav { display: flex; gap: 20px; font-size: 15px; }
+.topbar nav a { color: var(--dim); }
+.topbar nav a:hover { color: var(--text); text-decoration: none; }
+
+/* ───── the launcher on top ───── */
+.launch-hero { position: relative; overflow: hidden; text-align: center; padding: 64px 0 24px; }
+.launch-hero .lead { margin: 0 auto; max-width: 640px; font-size: 19px; color: var(--dim); }
+.launch-hero h1 { font-size: clamp(36px, 7vw, 64px); line-height: 1.08; margin: 18px 0 16px; font-weight: 700; letter-spacing: -0.02em; }
+.hero-icon { width: 96px; height: 96px; filter: drop-shadow(0 10px 30px color-mix(in srgb, var(--accent) 45%, transparent)); animation: float 6s ease-in-out infinite; }
+.grad { background: linear-gradient(90deg, var(--accent), #8a7dff, #e66bd0, var(--accent)); background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 9s linear infinite; }
+.buttons.center { justify-content: center; }
+.btn { transition: transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn.big { padding: 14px 24px; font-size: 17px; border-radius: 12px; box-shadow: 0 8px 28px color-mix(in srgb, var(--accent-strong) 45%, transparent); }
+.btn.big:hover { box-shadow: 0 12px 34px color-mix(in srgb, var(--accent-strong) 60%, transparent); }
+.hero-shot { max-width: 860px; margin: 40px auto 0; box-shadow: 0 30px 80px rgba(0,0,0,.45), 0 0 0 1px var(--line);
+  transform: perspective(1400px) rotateX(6deg); transform-origin: 50% 100%; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.hero-shot:hover { transform: perspective(1400px) rotateX(0deg); }
+.aurora { position: absolute; inset: -30% -10% auto; height: 760px; z-index: -1; filter: blur(70px); opacity: .55;
+  background: radial-gradient(40% 50% at 30% 40%, color-mix(in srgb, var(--accent) 55%, transparent), transparent 70%),
+              radial-gradient(35% 45% at 70% 35%, rgba(138,125,255,.5), transparent 70%),
+              radial-gradient(30% 40% at 55% 70%, rgba(230,107,208,.35), transparent 70%);
+  animation: drift 18s ease-in-out infinite alternate; }
+.launch-hero { isolation: isolate; }
+.sub { color: var(--dim); margin: -8px 0 20px; }
+.grid.four { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.rule .dot { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; margin-bottom: 10px; font-weight: 700; font-size: 14px;
+  color: var(--accent); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+
+/* ───── movement: cards lift, sections come up when scrolled to ───── */
+.card { transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease; }
+.app-card:hover, .rule:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); box-shadow: 0 14px 34px rgba(0,0,0,.25); }
+.app-card .project-head img { transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+.app-card:hover .project-head img { transform: scale(1.08) rotate(-3deg); }
+html.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); transition-delay: var(--d, 0s); }
+html.js .reveal.in { opacity: 1; transform: none; }
+html.js .reveal.card.in:hover { transform: translateY(-3px); transition-delay: 0s; }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes shimmer { to { background-position: 300% 0; } }
+@keyframes drift { 0% { transform: translate(-4%, 0) scale(1); } 100% { transform: translate(4%, 6%) scale(1.08); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html.js .reveal { opacity: 1; transform: none; }
+  .hero-shot { transform: none; }
+}
+@media (max-width: 600px) {
+  .topbar nav { gap: 14px; font-size: 14px; }
+  .launch-hero { padding-top: 40px; }
+  .hero-shot { transform: none; }
+}
