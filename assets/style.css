@@ -84,7 +84,10 @@ table.req ul { margin: 6px 0 0; padding-left: 20px; }
 .app-card .project-head:hover { text-decoration: none; color: var(--accent); }
 .app-card .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; }
 .btn.small { padding: 7px 12px; font-size: 14px; border-radius: 8px; }
-.app-card .more { margin-left: auto; font-size: 14px; }
+/* the whole card opens the page of the app (its title link is stretched over it); the download buttons stay above */
+.app-card { position: relative; }
+.app-card .project-head::after { content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: 0; }
+.app-card .actions { position: relative; z-index: 1; }
 /* ───── the top bar ───── */
 .topbar { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px);
   background: color-mix(in srgb, var(--bg) 72%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }

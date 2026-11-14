@@ -38,7 +38,7 @@
     <h2>What goes over the internet</h2>
     <table class="req">
       <tr><td>HeMi Launcher</td><td>Only <b>GitHub</b>: it asks for the latest releases of the HeMi apps (after its start and every 4 hours, or when you click Refresh) and downloads the installers of the apps you install or update – over HTTPS, without any identifier of you or your PC.</td></tr>
-      <tr><td>HeMiPix</td><td>Nothing. It never connects to the internet – the photos never leave your PC.</td></tr>
+      <tr><td>HeMiPix</td><td>The photos never leave your PC. Only when you install the free HEIF / HEVC extensions of Microsoft (asked first): winget and the Microsoft Store.</td></tr>
       <tr><td>HeMiUnlocker</td><td>Nothing. It never connects to the internet.</td></tr>
       <tr><td>HeMiPad</td><td>Nothing. It never connects to the internet – even the spell check uses the dictionaries already in Windows.</td></tr>
       <tr><td>HeMi Dark</td><td>Nothing – it is a set of skin files for VLC, not a program.</td></tr>
@@ -64,8 +64,8 @@
       <tr><td>HeMiPix</td><td><code>%AppData%\HeMi\HeMiPix\settings.ini</code>; the photos it makes go where you choose (next to the originals by default).</td></tr>
       <tr><td>HeMiPad</td><td><code>%AppData%\HeMi\HeMiPad\settings.ini</code></td></tr>
       <tr><td>HeMi Launcher</td><td><code>%AppData%\HeMi\HeMiLauncher\settings.ini</code>; for the other HeMi apps it notes where it is (<code>HKCU\Software\HeMi\HeMiLauncher</code>) and which updates it found (<code>%LocalAppData%\HeMi\HeMiLauncher</code>).</td></tr>
-      <tr><td>HeMiUnlocker</td><td>Keeps no settings; only the optional File Explorer submenu is written to <code>HKCU\Software\Classes</code> (and, for the notifications of “Unlock”, its name and icon).</td></tr>
-      <tr><td>The programs</td><td>The installer asks: just for you (<code>%LocalAppData%\Programs</code>, no administrator rights) or for all users (<code>Program Files</code>). The portable versions run from any folder.</td></tr>
+      <tr><td>HeMiUnlocker</td><td>Keeps no settings of its own; only the optional File Explorer submenu is written to <code>HKCU\Software\Classes</code> (and, for the notifications of “Unlock”, its name and icon).</td></tr>
+      <tr><td>The programs</td><td>The installer asks: just for you (<code>%LocalAppData%\Programs</code>, no administrator rights) or for all users (<code>Program Files</code>), x64 or ARM64. Uninstalling asks whether to delete the settings or keep them. The portable versions run from any folder.</td></tr>
     </table>
   </section>
 
@@ -74,7 +74,7 @@
     <ul>
       <li><b>Built in the open.</b> Every download is built by GitHub Actions from the public source of its version – you can see the build log of each release on the Actions page of the project.</li>
       <li><b>Checksums.</b> Each release has a <code>SHA256SUMS.txt</code>. To compare, open PowerShell in the download folder and run <code>Get-FileHash HeMiDock-Setup.exe</code> – the hash must be the same as in the file.</li>
-      <li><b>Updates only from the projects.</b> HeMiDock and HeMi Launcher download updates only from the Releases of the HeMi projects on GitHub, over HTTPS, and install them only after you agree (or after you switch on quiet installing in the launcher).</li>
+      <li><b>Updates only from the projects.</b> HeMiDock and HeMi Launcher download updates only from the Releases of the HeMi projects on GitHub, over HTTPS (HeMi Launcher checks every download against <code>SHA256SUMS.txt</code> first), and install them only after you agree (or after you switch on quiet installing in the launcher).</li>
       <li><b>Windows SmartScreen.</b> The apps are not code-signed (a certificate costs hundreds of euros a year), so Windows can show “Windows protected your PC” the first time. Choose <i>More info → Run anyway</i> – or check the checksum first.</li>
     </ul>
   </section>
