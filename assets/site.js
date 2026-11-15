@@ -21,17 +21,14 @@
 (function () {
   var els = document.querySelectorAll('[data-repo]');
   if (!els.length || !window.fetch) return;
-  var KEY = 'hemi-versions', cache = {};
+  var KEY = 'hemi-versions-2', cache = {};
   try { cache = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
   var fresh = cache.t && Date.now() - cache.t < 3600000;
-  function date(d) {
-    try { return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }); } catch (e) { return String(d).slice(0, 10); }
-  }
   function show(repo) {
     var v = cache[repo];
     if (!v) return;
     document.querySelectorAll('[data-repo="' + repo + '"]').forEach(function (el) {
-      el.textContent = 'v' + v.tag + ' · ' + date(v.date);
+      el.textContent = 'v' + v.tag;
       el.title = 'Latest version';
       el.hidden = false;
     });
@@ -44,7 +41,7 @@
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (j) {
         if (j && j.tag_name) {
-          cache[repo] = { tag: j.tag_name.replace(/^v/i, ''), date: j.published_at };
+          cache[repo] = { tag: j.tag_name.replace(/^v/i, '') };
           cache.t = Date.now();
           try { localStorage.setItem(KEY, JSON.stringify(cache)); } catch (e) {}
         }
