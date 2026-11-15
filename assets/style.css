@@ -111,8 +111,8 @@ table.req ul { margin: 6px 0 0; padding-left: 20px; }
 .btn.big { padding: 14px 24px; font-size: 17px; border-radius: 12px; box-shadow: 0 8px 28px color-mix(in srgb, var(--accent-strong) 45%, transparent); }
 .btn.big:hover { box-shadow: 0 12px 34px color-mix(in srgb, var(--accent-strong) 60%, transparent); }
 .hero-shot { max-width: 860px; margin: 40px auto 0; box-shadow: 0 30px 80px rgba(0,0,0,.45), 0 0 0 1px var(--line);
-  transform: perspective(1400px) rotateX(6deg); transform-origin: 50% 100%; transition: transform .6s cubic-bezier(.2,.8,.2,1); will-change: transform; }
-.hero-shot:hover { transform: perspective(1400px) rotateX(0deg); }
+  transform: scale(1); transform-origin: 50% 50%; transition: transform .5s cubic-bezier(.2,.8,.2,1); will-change: transform; }
+.hero-shot:hover { transform: scale(1.025); }
 .aurora { position: absolute; inset: -30% -10% auto; height: 760px; z-index: -1; filter: blur(70px); opacity: .55;
   background: radial-gradient(40% 50% at 30% 40%, color-mix(in srgb, var(--accent) 55%, transparent), transparent 70%),
               radial-gradient(35% 45% at 70% 35%, rgba(138,125,255,.5), transparent 70%),
@@ -176,7 +176,7 @@ html.js .reveal.card.in:hover { transform: translateY(-3px); transition-delay: 0
 /* ───── the launcher drawn, not photographed: cards come in, one installs, one waits with an update ───── */
 .sketch { max-width: 860px; margin: 40px auto 0; text-align: left; background: color-mix(in srgb, var(--surface) 92%, transparent);
   border: 1px solid var(--line); border-radius: 14px; padding: 0 22px 22px; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
-a.sketch { display: block; color: inherit; text-decoration: none; transition: transform .6s cubic-bezier(.2,.8,.2,1), border-color .3s ease; }
+a.sketch { display: block; color: inherit; text-decoration: none; transition: transform .5s cubic-bezier(.2,.8,.2,1), border-color .3s ease; }
 a.sketch:hover { text-decoration: none; border-color: var(--accent); }
 .sk-title { display: flex; align-items: center; gap: 8px; height: 38px; font-size: 13px; color: var(--dim); }
 .sk-title img { width: 16px; height: 16px; }
