@@ -147,3 +147,72 @@ html.js .reveal.card.in:hover { transform: translateY(-3px); transition-delay: 0
   .launch-hero { padding-top: 40px; }
   .hero-shot { transform: none; }
 }
+
+/* ───── the latest version (filled in by site.js) ───── */
+.ver { display: inline-block; font-size: 12px; font-weight: 400; color: var(--dim); background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px; padding: 1px 9px; white-space: nowrap; }
+.project-head .ver { margin-left: auto; }
+.ver.big { font-size: 13px; margin-left: 4px; }
+.note .ver { margin-right: 6px; vertical-align: 1px; }
+
+/* ───── questions ───── */
+.faq { display: grid; gap: 10px; max-width: 860px; }
+.faq details { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 0 20px; transition: border-color .2s ease; }
+.faq details[open] { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.faq summary { cursor: pointer; list-style: none; padding: 16px 0; font-weight: 600; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--accent); font-weight: 400; font-size: 20px; line-height: 1; transition: transform .2s ease; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { margin: 0 0 16px; color: var(--dim); }
+
+/* ───── the top bar: the logo at the left edge, the links with icons at the right ───── */
+.topbar .bar { display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 28px; }
+.topbar .brand img { width: 30px; height: 30px; display: block; transition: transform .25s ease; }
+.topbar .brand:hover img { transform: rotate(-6deg) scale(1.06); }
+.topbar nav { gap: 6px; }
+.topbar nav a { display: inline-flex; align-items: center; gap: 7px; padding: 6px 12px; border-radius: 8px; transition: background-color .15s ease, color .15s ease; }
+.topbar nav a:hover { background: var(--surface-2); }
+.topbar nav svg { opacity: .85; }
+@media (max-width: 600px) { .topbar .bar { padding: 0 14px; } .topbar nav a { padding: 6px 8px; } }
+
+/* ───── the launcher drawn, not photographed: cards come in, one installs, one waits with an update ───── */
+.sketch { max-width: 860px; margin: 40px auto 0; text-align: left; background: color-mix(in srgb, var(--surface) 92%, transparent);
+  border: 1px solid var(--line); border-radius: 14px; padding: 0 22px 22px; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+.sk-title { display: flex; align-items: center; gap: 8px; height: 38px; font-size: 13px; color: var(--dim); }
+.sk-title img { width: 16px; height: 16px; }
+.sk-win { margin-left: auto; display: flex; gap: 18px; }
+.sk-win i { width: 10px; height: 10px; border: 1.5px solid var(--dim); border-radius: 2px; opacity: .6; }
+.sk-win i:first-child { height: 0; border-width: 0 0 1.5px; align-self: center; }
+.sk-head { display: flex; align-items: center; margin: 6px 0 16px; }
+.sk-head b { font-size: 24px; font-weight: 700; }
+.sk-tools { margin-left: auto; display: flex; gap: 14px; }
+.sk-tools i { width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--dim); opacity: .6; }
+.sk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.sk-card { background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 7px;
+  animation: sk-in .6s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i) * .12s + .2s); }
+.sk-top { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.sk-top img { width: 30px; height: 30px; }
+.sk-top b { display: block; font-size: 14px; }
+.sk-top small { display: block; font-size: 11px; color: var(--dim); }
+.sk-top em { margin-left: auto; font-style: normal; font-size: 11px; color: var(--dim); }
+.sk-update .sk-top em { color: var(--accent); }
+.sk-line { display: block; height: 7px; border-radius: 4px; background: var(--line); }
+.sk-short { width: 62%; }
+.sk-btns { position: relative; display: flex; align-items: center; gap: 8px; height: 30px; margin-top: 6px; }
+.sk-btn { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); }
+.sk-accent { background: var(--accent-strong); border-color: var(--accent-strong); color: #fff; }
+.sk-update { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)); }
+.sk-update .sk-btn { animation: sk-pulse 2.4s ease-in-out infinite 1.5s; }
+/* installing: the button, the progress, "Installed" – again and again */
+.sk-install .sk-go { animation: sk-go 7s infinite 1.2s; }
+.sk-progress { position: absolute; left: 0; width: 70%; height: 5px; border-radius: 3px; background: var(--line); opacity: 0; animation: sk-show 7s infinite 1.2s; }
+.sk-progress span { display: block; height: 100%; width: 0; border-radius: 3px; background: var(--accent); animation: sk-fill 7s infinite 1.2s; }
+.sk-done { position: absolute; left: 0; font-size: 12px; font-weight: 600; color: #3fb950; opacity: 0; animation: sk-done 7s infinite 1.2s; }
+@keyframes sk-in { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes sk-pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 50%, transparent); } 50% { box-shadow: 0 0 0 6px transparent; } }
+@keyframes sk-go { 0%, 12% { opacity: 1; } 15%, 92% { opacity: 0; } 96%, 100% { opacity: 1; } }
+@keyframes sk-show { 0%, 13% { opacity: 0; } 16%, 62% { opacity: 1; } 66%, 100% { opacity: 0; } }
+@keyframes sk-fill { 0%, 16% { width: 0; } 60%, 100% { width: 100%; } }
+@keyframes sk-done { 0%, 64% { opacity: 0; } 68%, 90% { opacity: 1; } 94%, 100% { opacity: 0; } }
+@media (max-width: 760px) { .sk-grid { grid-template-columns: repeat(2, 1fr); } .sk-card:nth-child(5) { display: none; } }
+@media (max-width: 480px) { .sk-grid { grid-template-columns: 1fr; } .sk-card:nth-child(n+4) { display: none; } }
+.sk-win i:last-child { border: 0; border-radius: 0; background: linear-gradient(45deg, transparent 44%, var(--dim) 44% 56%, transparent 56%), linear-gradient(-45deg, transparent 44%, var(--dim) 44% 56%, transparent 56%); }
