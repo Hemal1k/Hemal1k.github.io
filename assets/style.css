@@ -111,7 +111,7 @@ table.req ul { margin: 6px 0 0; padding-left: 20px; }
 .btn.big { padding: 14px 24px; font-size: 17px; border-radius: 12px; box-shadow: 0 8px 28px color-mix(in srgb, var(--accent-strong) 45%, transparent); }
 .btn.big:hover { box-shadow: 0 12px 34px color-mix(in srgb, var(--accent-strong) 60%, transparent); }
 .hero-shot { max-width: 860px; margin: 40px auto 0; box-shadow: 0 30px 80px rgba(0,0,0,.45), 0 0 0 1px var(--line);
-  transform: perspective(1400px) rotateX(6deg); transform-origin: 50% 100%; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+  transform: perspective(1400px) rotateX(6deg); transform-origin: 50% 100%; transition: transform .6s cubic-bezier(.2,.8,.2,1); will-change: transform; }
 .hero-shot:hover { transform: perspective(1400px) rotateX(0deg); }
 .aurora { position: absolute; inset: -30% -10% auto; height: 760px; z-index: -1; filter: blur(70px); opacity: .55;
   background: radial-gradient(40% 50% at 30% 40%, color-mix(in srgb, var(--accent) 55%, transparent), transparent 70%),
@@ -204,17 +204,21 @@ a.sketch:hover { text-decoration: none; border-color: var(--accent); }
 .sk-btn { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); }
 .sk-accent { background: var(--accent-strong); border-color: var(--accent-strong); color: #fff; }
 .sk-update { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)); }
-.sk-update .sk-btn { animation: sk-pulse 2.4s ease-in-out infinite 1.5s; }
+/* the pulse of Update: a ring that fades (opacity and scale only – no repaint of the tilted sketch) */
+.sk-update .sk-btn { position: relative; }
+.sk-update .sk-btn::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 45%, transparent);
+  opacity: 0; animation: sk-pulse 2.4s ease-in-out infinite 1.5s; }
 /* installing: the button, the progress, "Installed" – again and again */
 .sk-install .sk-go { animation: sk-go 7s infinite 1.2s; }
 .sk-progress { position: absolute; left: 0; width: 70%; height: 5px; border-radius: 3px; background: var(--line); opacity: 0; animation: sk-show 7s infinite 1.2s; }
-.sk-progress span { display: block; height: 100%; width: 0; border-radius: 3px; background: var(--accent); animation: sk-fill 7s infinite 1.2s; }
+.sk-progress { overflow: hidden; }
+.sk-progress span { display: block; height: 100%; width: 100%; border-radius: 3px; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; animation: sk-fill 7s infinite 1.2s; }
 .sk-done { position: absolute; left: 0; font-size: 12px; font-weight: 600; color: #3fb950; opacity: 0; animation: sk-done 7s infinite 1.2s; }
 @keyframes sk-in { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
-@keyframes sk-pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 50%, transparent); } 50% { box-shadow: 0 0 0 6px transparent; } }
+@keyframes sk-pulse { 0% { opacity: 0; transform: scale(.9); } 30% { opacity: 1; } 60%, 100% { opacity: 0; transform: scale(1.12); } }
 @keyframes sk-go { 0%, 12% { opacity: 1; } 15%, 92% { opacity: 0; } 96%, 100% { opacity: 1; } }
 @keyframes sk-show { 0%, 13% { opacity: 0; } 16%, 62% { opacity: 1; } 66%, 100% { opacity: 0; } }
-@keyframes sk-fill { 0%, 16% { width: 0; } 60%, 100% { width: 100%; } }
+@keyframes sk-fill { 0%, 16% { transform: scaleX(0); } 60%, 100% { transform: scaleX(1); } }
 @keyframes sk-done { 0%, 64% { opacity: 0; } 68%, 90% { opacity: 1; } 94%, 100% { opacity: 0; } }
 @media (max-width: 760px) { .sk-grid { grid-template-columns: repeat(2, 1fr); } .sk-card:nth-child(5) { display: none; } }
 @media (max-width: 480px) { .sk-grid { grid-template-columns: 1fr; } .sk-card:nth-child(n+4) { display: none; } }
