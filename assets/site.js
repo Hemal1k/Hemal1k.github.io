@@ -50,3 +50,70 @@
       .catch(function () { show(repo); });
   });
 })();
+
+// The sketches of the apps that need a script: HeMiPad types its file, HeMiDock types "volume" into its quick search.
+// They start when they come on screen; with "reduce motion" they stay as they are drawn (all shown).
+(function () {
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function onScreen(el, start) {
+    if (!('IntersectionObserver' in window)) { start(); return; }
+    var o = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) { o.disconnect(); start(); }
+    }, { threshold: 0.25 });
+    o.observe(el);
+  }
+
+  document.querySelectorAll('.sk-pad').forEach(function (pad) {
+    var lines = [].slice.call(pad.querySelectorAll('.sk-code > span'));
+    var pos = pad.querySelector('.sk-pos'), chars = pad.querySelector('.sk-chars');
+    var lens = lines.map(function (l) { return l.textContent.length; });
+    onScreen(pad, async function () {
+      for (;;) {
+        lines.forEach(function (l) { l.style.width = '0ch'; });
+        var typed = 0;
+        for (var i = 0; i < lines.length; i++) {
+          var l = lines[i];
+          l.classList.add('caret');
+          // the indentation at once, the rest key by key
+          var start = l.textContent.length - l.textContent.replace(/^ +/, '').length;
+          for (var c = start; c <= lens[i]; c++) {
+            l.style.width = c + 'ch';
+            if (pos) pos.textContent = 'Ln ' + (i + 1) + ', Col ' + (c + 1);
+            if (chars) chars.textContent = (typed + c) + ' characters';
+            await wait(c === start ? 120 : 26 + Math.random() * 30);
+          }
+          typed += lens[i] + 1;
+          l.classList.remove('caret');
+        }
+        lines[lines.length - 1].classList.add('caret');
+        await wait(3500);
+        lines[lines.length - 1].classList.remove('caret');
+      }
+    });
+  });
+
+  document.querySelectorAll('.sk-desk').forEach(function (desk) {
+    var text = desk.querySelector('.sk-q-text'), val = desk.querySelector('.sk-qval');
+    function set(cls, on) { desk.classList.toggle(cls, on); }
+    onScreen(desk, async function () {
+      for (;;) {
+        set('open', false); set('found', false); set('set', false);
+        await wait(1000);
+        text.textContent = ''; val.textContent = '30';
+        set('open', true);
+        await wait(600);
+        for (var ch of 'volume') { text.textContent += ch; await wait(120); }
+        await wait(250);
+        set('found', true);
+        await wait(1200);
+        set('set', true);
+        for (var v = 30; v <= 75; v += 3) { val.textContent = String(v); await wait(70); }
+        val.textContent = '75';
+        await wait(2400);
+        set('open', false);
+        await wait(700);
+      }
+    });
+  });
+})();
