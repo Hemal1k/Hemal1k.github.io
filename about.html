@@ -67,7 +67,7 @@
       <tr><td>HeMimizer</td><td>Everything in the folder <code>HeMimizer data</code> next to <code>HeMimizer.exe</code>: the backup (settings, installers, your folders), the log and a to-do list of the run. <b>Done</b> at the end removes HeMimizer and its data from the new PC.</td></tr>
       <tr><td>HeMi Launcher</td><td><code>%AppData%\HeMi\HeMiLauncher\settings.ini</code>; for the other HeMi apps it notes where it is (<code>HKCU\Software\HeMi\HeMiLauncher</code>) and which updates it found (<code>%LocalAppData%\HeMi\HeMiLauncher</code>).</td></tr>
       <tr><td>HeMiUnlocker</td><td>Keeps no settings of its own; only the optional File Explorer submenu is written to <code>HKCU\Software\Classes</code> (and, for the notifications of “Unlock”, its name and icon).</td></tr>
-      <tr><td>The programs</td><td>The installer asks: just for you (<code>%LocalAppData%\Programs</code>, no administrator rights) or for all users (<code>Program Files</code>), x64 or ARM64. Uninstalling asks whether to delete the settings or keep them. The portable versions run from any folder.</td></tr>
+      <tr><td>The programs</td><td>The installer asks: just for you (<code>%LocalAppData%\Programs\HeMi\&lt;app&gt;</code>, no administrator rights) or for all users (<code>Program Files\HeMi\&lt;app&gt;</code>) – one HeMi folder, like the settings, x64 or ARM64. Uninstalling asks whether to delete the settings or keep them. The portable versions run from any folder.</td></tr>
     </table>
   </section>
 
