@@ -149,3 +149,16 @@
   .sketch .sk-state svg, .sk-size, .sk-sum { opacity: 1; }
   .sk-free { display: none; }
 }
+
+/* HeMimizer: the wizard, programs switched on one after another */
+.sk-mz .sk-step { font-size: 13px; margin-left: 10px; }
+.sk-mz .sk-intro { display: block; font-size: 12px; margin: -6px 0 6px; }
+.sk-mz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.sk-mz-grid .sk-set { margin-bottom: 0; }
+.sk-mz .sk-label { margin: 12px 0 6px; }
+.sk-toggle.sk-pick { animation: sk-pick 9s infinite; animation-delay: calc(var(--i) * .6s + .5s); }
+.sk-toggle.sk-pick::after { animation: sk-pickk 9s infinite; animation-delay: calc(var(--i) * .6s + .5s); }
+@keyframes sk-pick { 0%, 8% { background: transparent; border-color: var(--dim); } 11%, 88% { background: var(--accent); border-color: var(--accent); } 92%, 100% { background: transparent; border-color: var(--dim); } }
+@keyframes sk-pickk { 0%, 8% { transform: none; background: var(--dim); } 11%, 88% { transform: translateX(17px); background: var(--surface); } 92%, 100% { transform: none; background: var(--dim); } }
+@media (max-width: 600px) { .sk-mz-grid { grid-template-columns: 1fr; } .sk-mz .sk-name small { display: none; } }
+@media (prefers-reduced-motion: reduce) { .sk-toggle.sk-pick { background: var(--accent); border-color: var(--accent); } .sk-toggle.sk-pick::after { transform: translateX(17px); background: var(--surface); } }
