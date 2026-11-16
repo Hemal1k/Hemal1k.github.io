@@ -220,6 +220,6 @@ a.sketch:hover { text-decoration: none; border-color: var(--accent); }
 @keyframes sk-show { 0%, 13% { opacity: 0; } 16%, 62% { opacity: 1; } 66%, 100% { opacity: 0; } }
 @keyframes sk-fill { 0%, 16% { transform: scaleX(0); } 60%, 100% { transform: scaleX(1); } }
 @keyframes sk-done { 0%, 64% { opacity: 0; } 68%, 90% { opacity: 1; } 94%, 100% { opacity: 0; } }
-@media (max-width: 760px) { .sk-grid { grid-template-columns: repeat(2, 1fr); } .sk-card:nth-child(5) { display: none; } }
+@media (max-width: 760px) { .sk-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .sk-grid { grid-template-columns: 1fr; } .sk-card:nth-child(n+4) { display: none; } }
 .sk-win i:last-child { border: 0; border-radius: 0; background: linear-gradient(45deg, transparent 44%, var(--dim) 44% 56%, transparent 56%), linear-gradient(-45deg, transparent 44%, var(--dim) 44% 56%, transparent 56%); }
