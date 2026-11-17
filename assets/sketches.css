@@ -66,6 +66,7 @@
 /* HeMiPad: a JSON file is typed (site.js), with its colours */
 .sk-pad { --k: #9cdcfe; --s: #ce9178; --n: #b5cea8; --w: #569cd6; padding-bottom: 0; }
 @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .sk-pad { --k: #0451a5; --s: #a31515; --n: #098658; --w: #0000ff; } }
+:root[data-theme="light"] .sk-pad { --k: #0451a5; --s: #a31515; --n: #098658; --w: #0000ff; }
 .sk-menu { display: flex; align-items: center; gap: 24px; font-size: 13px; margin: 2px 0 10px; }
 .sk-menu .sk-tools { margin-left: auto; }
 .sk-code { background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; height: 300px; overflow: hidden; font: 13px/1.55 "Cascadia Mono", Consolas, ui-monospace, monospace; }
@@ -103,6 +104,7 @@
 .sk-wall { position: absolute; inset: 0; overflow: hidden; background: #191830; }
 .sk-wall i { position: absolute; inset: -30%; background: radial-gradient(35% 40% at 30% 35%, rgba(76,194,255,.42), transparent 70%), radial-gradient(40% 45% at 70% 45%, rgba(138,125,255,.5), transparent 70%), radial-gradient(30% 35% at 50% 85%, rgba(230,107,208,.35), transparent 70%); animation: sk-scene 16s ease-in-out infinite alternate; }
 @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .sk-wall { background: #dfe5f3; } }
+:root[data-theme="light"] .sk-wall { background: #dfe5f3; }
 .sk-dockbar { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); display: flex; align-items: center; gap: 14px; padding: 8px 14px; border-radius: 14px; white-space: nowrap;
   background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,.3); }
 .sk-startic { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; width: 34px; height: 34px; padding: 5px; }

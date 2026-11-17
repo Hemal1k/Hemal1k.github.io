@@ -17,6 +17,12 @@
     color-scheme: light;
   }
 }
+/* chosen by the switch (site.js): light also on a dark system; dark is the default above */
+:root[data-theme="light"] {
+  --bg: #f3f3f6; --surface: #ffffff; --surface-2: #f0f0f4; --line: #e1e1e8;
+  --text: #1b1b1f; --dim: #5d5d68; --accent: #0067c0; --accent-strong: #005aa8;
+  color-scheme: light;
+}
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
@@ -223,3 +229,13 @@ a.sketch:hover { text-decoration: none; border-color: var(--accent); }
 @media (max-width: 760px) { .sk-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .sk-grid { grid-template-columns: 1fr; } .sk-card:nth-child(n+4) { display: none; } }
 .sk-win i:last-child { border: 0; border-radius: 0; background: linear-gradient(45deg, transparent 44%, var(--dim) 44% 56%, transparent 56%), linear-gradient(-45deg, transparent 44%, var(--dim) 44% 56%, transparent 56%); }
+
+/* the switch of the theme: Automatic (as the system) → Light → Dark; in the top bar, else in the top right corner */
+.theme-switch { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--dim);
+  border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 13px; cursor: pointer; transition: color .2s, border-color .2s; }
+.theme-switch:hover { color: var(--text); border-color: var(--accent); }
+.theme-switch svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.theme-switch.float { position: fixed; top: 14px; right: 16px; z-index: 20; background: color-mix(in srgb, var(--surface) 85%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.topbar .theme-switch { margin-left: 6px; }
+@media (max-width: 600px) { .theme-switch span { display: none; } .theme-switch { padding: 7px; } }

@@ -145,3 +145,37 @@
     });
   });
 })();
+
+// The switch of the theme: Automatic (as the system) → Light → Dark, remembered in this browser. The head of each page
+// sets the remembered one before anything is drawn (no flash of the other theme).
+(function () {
+  var KEY = 'hemi-theme', root = document.documentElement;
+  var modes = ['auto', 'light', 'dark'];
+  var names = { auto: 'Automatic', light: 'Light', dark: 'Dark' };
+  var icons = {
+    auto: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.8"/><path d="M8 2.2v11.6A5.8 5.8 0 018 2.2z" fill="currentColor"/></svg>',
+    light: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg>',
+    dark: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.8 5.8 0 016.4 2.5a5.8 5.8 0 107.1 7.1z"/></svg>'
+  };
+  var mode = 'auto';
+  try { mode = localStorage.getItem(KEY) || 'auto'; } catch (e) {}
+  if (modes.indexOf(mode) < 0) mode = 'auto';
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'theme-switch';
+  function show() {
+    if (mode === 'auto') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', mode);
+    btn.innerHTML = icons[mode] + '<span>' + names[mode] + '</span>';
+    var next = modes[(modes.indexOf(mode) + 1) % 3];
+    btn.title = 'Theme: ' + names[mode] + ' – click for ' + names[next];
+    btn.setAttribute('aria-label', btn.title);
+  }
+  btn.addEventListener('click', function () {
+    mode = modes[(modes.indexOf(mode) + 1) % 3];
+    try { if (mode === 'auto') localStorage.removeItem(KEY); else localStorage.setItem(KEY, mode); } catch (e) {}
+    show();
+  });
+  show();
+  var nav = document.querySelector('.topbar nav');
+  if (nav) nav.appendChild(btn); else { btn.classList.add('float'); document.body.appendChild(btn); }
+})();
