@@ -150,15 +150,40 @@
   .sk-free { display: none; }
 }
 
-/* HeMimizer: the wizard, programs switched on one after another */
-.sk-mz .sk-step { font-size: 13px; margin-left: 10px; }
-.sk-mz .sk-intro { display: block; font-size: 12px; margin: -6px 0 6px; }
+/* HeMimizer: the wizard as it is now – the steps, a search, sections that fold with how many are on, cards that light up
+   when they are chosen (site.js picks them one after another) */
+.sk-mz .sk-head { margin-bottom: 4px; }
+.sk-steps { display: flex; list-style: none; margin: 0 0 10px; padding: 0; }
+.sk-steps li { position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; color: var(--dim); }
+.sk-steps li::before { content: ""; position: absolute; top: 10px; left: calc(-50% + 14px); right: calc(50% + 14px); height: 2px; background: var(--line); }
+.sk-steps li:first-child::before { display: none; }
+.sk-steps li.done::before, .sk-steps li.now::before { background: var(--accent); }
+.sk-steps i { display: grid; place-items: center; width: 21px; height: 21px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--surface); font: 600 11px/1 inherit; font-style: normal; color: var(--dim); }
+.sk-steps li.done i { background: var(--accent); border-color: var(--accent); }
+.sk-steps li.done i::after { content: ""; width: 7px; height: 4px; margin-top: -2px; border: solid var(--surface); border-width: 0 0 2px 2px; transform: rotate(-45deg); }
+.sk-steps li.now i { background: var(--accent); border-color: var(--accent); color: var(--surface); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent); }
+.sk-steps li.now span { color: var(--text); font-weight: 600; }
+.sk-mz-intro { display: flex; align-items: baseline; gap: 10px; font-size: 12px; margin-bottom: 8px; }
+.sk-mz-intro small { margin-right: auto; }
+.sk-chosen { font-size: 12px; color: var(--accent); }
+.sk-search { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--dim); background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; margin-bottom: 6px; }
+.sketch .sk-search svg, .sketch .sk-fold svg, .sketch .sk-ic svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.sk-fold { display: flex; align-items: center; gap: 7px; font-size: 13px; margin: 10px 0 6px; }
+.sk-fold .sk-chev { width: 6px; height: 6px; margin: -4px 3px 0 2px; border: solid var(--dim); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
+.sk-fold.folded .sk-chev { margin-top: 0; transform: rotate(-45deg); }
+.sk-fold svg { color: var(--accent); }
+.sk-fold em { font-style: normal; font-size: 11px; padding: 1px 8px; border-radius: 9px; background: var(--accent); color: var(--surface); transition: background .3s, color .3s; }
+.sk-fold em.off { background: color-mix(in srgb, var(--line) 70%, transparent); color: var(--dim); }
+.sk-fold.folded { margin: 6px 0; }
 .sk-mz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.sk-mz-grid .sk-set { margin-bottom: 0; }
-.sk-mz .sk-label { margin: 12px 0 6px; }
-.sk-toggle.sk-pick { animation: sk-pick 9s infinite; animation-delay: calc(var(--i) * .6s + .5s); }
-.sk-toggle.sk-pick::after { animation: sk-pickk 9s infinite; animation-delay: calc(var(--i) * .6s + .5s); }
-@keyframes sk-pick { 0%, 8% { background: transparent; border-color: var(--dim); } 11%, 88% { background: var(--accent); border-color: var(--accent); } 92%, 100% { background: transparent; border-color: var(--dim); } }
-@keyframes sk-pickk { 0%, 8% { transform: none; background: var(--dim); } 11%, 88% { transform: translateX(17px); background: var(--surface); } 92%, 100% { transform: none; background: var(--dim); } }
-@media (max-width: 600px) { .sk-mz-grid { grid-template-columns: 1fr; } .sk-mz .sk-name small { display: none; } }
-@media (prefers-reduced-motion: reduce) { .sk-toggle.sk-pick { background: var(--accent); border-color: var(--accent); } .sk-toggle.sk-pick::after { transform: translateX(17px); background: var(--surface); } }
+.sk-choice { display: flex; align-items: center; gap: 10px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px 7px 9px; font-size: 13px; transition: background .35s, border-color .35s; }
+.sk-choice .sk-ic { display: grid; place-items: center; width: 26px; height: 26px; flex: none; border-radius: 6px; color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface-2)); }
+.sk-choice.on { background: color-mix(in srgb, var(--surface-2) 93%, var(--accent)); border-color: color-mix(in srgb, var(--line) 60%, var(--accent)); }
+.sk-choice .sk-toggle { transition: background .3s, border-color .3s; }
+.sk-choice .sk-toggle::after { transition: transform .3s, background .3s; }
+.sk-choice.on .sk-toggle { background: var(--accent); border-color: var(--accent); }
+.sk-choice.on .sk-toggle::after { transform: translateX(17px); background: var(--surface); }
+.sk-mz .sk-foot .sk-btn { padding: 5px 16px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface-2); }
+.sk-mz .sk-foot .sk-btn:first-child { margin-right: auto; }
+.sk-mz .sk-foot .sk-accent { background: var(--accent-strong); border-color: var(--accent-strong); color: #fff; }
+@media (max-width: 600px) { .sk-mz-grid { grid-template-columns: 1fr; } .sk-mz .sk-name small, .sk-steps span, .sk-mz-intro small { display: none; } }

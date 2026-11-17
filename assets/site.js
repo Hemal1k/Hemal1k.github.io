@@ -116,4 +116,32 @@
       }
     });
   });
+
+  // HeMimizer: the programs drawn as chosen are switched on one after another; the counts follow (drawn: all on)
+  document.querySelectorAll('.sk-mz').forEach(function (mz) {
+    var picks = [].slice.call(mz.querySelectorAll('.sk-choice.on'));
+    var total = {};
+    mz.querySelectorAll('[data-count]').forEach(function (el) {
+      var m = el.textContent.match(/of (\d+)/);
+      if (m) total[el.dataset.count] = m[1];
+    });
+    function count() {
+      var all = 0, by = {};
+      mz.querySelectorAll('.sk-choice.on').forEach(function (c) { all++; by[c.dataset.group] = (by[c.dataset.group] || 0) + 1; });
+      mz.querySelectorAll('[data-count]').forEach(function (el) {
+        var g = el.dataset.count, n = g === 'all' ? all : by[g] || 0;
+        el.textContent = g === 'all' ? String(n) : n + ' of ' + total[g];
+        el.classList.toggle('off', g !== 'all' && n === 0);
+      });
+    }
+    onScreen(mz, async function () {
+      for (;;) {
+        picks.forEach(function (c) { c.classList.remove('on'); });
+        count();
+        await wait(900);
+        for (var i = 0; i < picks.length; i++) { picks[i].classList.add('on'); count(); await wait(650); }
+        await wait(3500);
+      }
+    });
+  });
 })();
