@@ -151,7 +151,7 @@
     });
   });
 
-  // HeMimizer: the programs drawn as chosen are switched on one after another; the counts follow (drawn: all on)
+  // HeMiMizer: the programs drawn as chosen are switched on one after another; the counts follow (drawn: all on)
   document.querySelectorAll('.sk-mz').forEach(function (mz) {
     var picks = [].slice.call(mz.querySelectorAll('.sk-choice.on'));
     var total = {};
