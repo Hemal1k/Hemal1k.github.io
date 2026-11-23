@@ -43,6 +43,14 @@
       <tr><td>HeMiUnlocker</td><td>Nothing. It never connects to the internet.</td></tr>
       <tr><td>HeMiPad</td><td>Nothing. It never connects to the internet – even the spell check uses the dictionaries already in Windows.</td></tr>
       <tr><td>HeMiMizer</td><td>Only what you chose in its wizard: the programs through <b>winget</b> (from their makers and the Microsoft Store), the AMD drivers from amd.com, HeMi Launcher from GitHub. Your backup stays in the folder you chose – nothing of it is sent anywhere.</td></tr>
+      <tr><td>HeMiTube</td><td>
+        On YouTube only, and only for the feature that needs it:
+        <ul>
+          <li><b>Return YouTube Dislike</b> – the dislike count: the ID of the video you open (and, as with any request, your IP address). On by default; turn the module off if you don't want it.</li>
+          <li><b>SponsorBlock</b> – skipping sponsors, only when you turn it on (the browser asks first): the first 4 characters of a SHA-256 hash of the video ID, so the server does not learn what you watch.</li>
+        </ul>
+        No analytics, no telemetry, no remote code; nothing is ever voted or sent.
+      </td></tr>
       <tr><td>HeMi Dark</td><td>Nothing – it is a set of skin files for VLC, not a program.</td></tr>
       <tr><td>HeMiDock</td><td>
         Only these, and only for the feature that needs them:
@@ -67,6 +75,8 @@
       <tr><td>HeMiPad</td><td><code>%AppData%\HeMi\HeMiPad\settings.ini</code></td></tr>
       <tr><td>HeMiMizer</td><td>Everything in the folder <code>HeMiMizer data</code> next to <code>HeMiMizer.exe</code>: the backup (settings, installers, your folders). HeMiMizer writes no log. <b>Done</b> at the end removes HeMiMizer and everything it put on the new PC – nothing of it stays.</td></tr>
       <tr><td>HeMi Launcher</td><td><code>%AppData%\HeMi\HeMiLauncher\settings.ini</code>; for the other HeMi apps it notes where it is (<code>HKCU\Software\HeMi\HeMiLauncher</code>) and which updates it found (<code>%LocalAppData%\HeMi\HeMiLauncher</code>).</td></tr>
+      <tr><td>HeMiTube</td><td>In your browser's own storage (synced with your browser account if you use sync); export and import as JSON in its settings.</td></tr>
+      <tr><td>HeMi Dark</td><td>Installed by HeMi Launcher: <code>%AppData%\vlc\skins\HeMiDark</code>; the skin chosen is written to the settings of VLC (<code>%AppData%\vlc\vlcrc</code> – a copy as it was before is kept next to it).</td></tr>
       <tr><td>HeMiUnlocker</td><td>Keeps no settings of its own; only the optional File Explorer submenu is written to <code>HKCU\Software\Classes</code> (and, for the notifications of “Unlock”, its name and icon).</td></tr>
       <tr><td>The programs</td><td>The installer asks: just for you (<code>%LocalAppData%\Programs\HeMi\&lt;app&gt;</code>, no administrator rights) or for all users (<code>Program Files\HeMi\&lt;app&gt;</code>) – one HeMi folder, like the settings, x64 or ARM64. Uninstalling asks whether to delete the settings or keep them. The portable versions run from any folder.</td></tr>
     </table>
