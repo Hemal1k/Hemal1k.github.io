@@ -4,20 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HeMiTube – a calmer YouTube in your browser</title>
-  <meta name="description" content="A browser extension for YouTube: a real theatre mode, the dislike count back, the quality and codecs you want, no Shorts. Chrome, Edge, Brave, Opera, Vivaldi. Free and open source.">
+  <meta name="description" content="A browser extension for YouTube: a real theater mode, the dislike count back, the quality and codecs you want, Shorts hidden if you like. Chrome, Edge, Brave, Opera, Vivaldi. Free and open source.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="HeMi">
   <meta property="og:title" content="HeMiTube">
-  <meta property="og:description" content="A browser extension for YouTube: a real theatre mode, the dislike count back, the quality and codecs you want, no Shorts. Free and open source.">
+  <meta property="og:description" content="A browser extension for YouTube: a real theater mode, the dislike count back, the quality and codecs you want, Shorts hidden if you like. Free and open source.">
   <meta property="og:url" content="https://hemal1k.github.io/hemitube.html">
+  <link rel="canonical" href="https://hemal1k.github.io/hemitube.html">
   <meta property="og:image" content="https://hemal1k.github.io/assets/og-hemitube.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/hemitube.png?v=3">
   <link rel="apple-touch-icon" href="assets/favicon-180.png?v=3">
   <script>try{var t=localStorage.getItem("hemi-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
-  <link rel="stylesheet" href="assets/style.css?v=9">
+  <link rel="stylesheet" href="assets/style.css?v=10">
   <link rel="stylesheet" href="assets/sketches.css?v=4">
-  <script src="assets/site.js?v=5" defer></script>
+  <script src="assets/site.js?v=6" defer></script>
 </head>
 <body>
 <main class="wrap">
@@ -28,26 +29,35 @@
       <h1>HeMiTube</h1>
       <span class="ver big" data-repo="HeMiTube" hidden></span>
     </div>
-    <p class="lead">A browser extension that makes YouTube calmer and more comfortable: a real theatre mode, the dislike count back, the quality and codecs you want, and no Shorts – with more you can turn on when you like.</p>
+    <p class="lead">A browser extension that makes YouTube calmer and more comfortable: a real theater mode, the dislike count back, the quality and codecs you want – and more you can turn on when you like, such as hiding Shorts.</p>
     <div class="buttons">
       <a class="btn primary" href="https://github.com/Hemal1k/HeMiTube/releases/latest/download/HeMiTube.zip">Download <small>.zip</small></a>
       <a class="btn gh" href="https://github.com/Hemal1k/HeMiTube"><svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
     </div>
-    <p class="note">Chrome, Edge, Brave, Opera, Vivaldi and other Chromium browsers. Not in the Chrome Web Store yet: unpack the zip, open the extensions page of the browser, turn on <i>Developer mode</i> and <i>Load unpacked</i> the folder. <a href="hemilauncher.html">HeMi Launcher</a> unpacks it, opens a short guide in your browser (<i>Add to browser</i>) and keeps it up to date.</p>
+    <div class="note">
+      <p>Chrome, Edge, Brave, Opera, Vivaldi and other Chromium browsers. Not in the Chrome Web Store yet, so the browser loads it as an unpacked extension:</p>
+      <ol>
+        <li>Unpack <b>HeMiTube.zip</b> into a new, empty folder that stays (not one you clean up, like Downloads).</li>
+        <li>Open the extensions page of the browser: <code>chrome://extensions</code>, <code>edge://extensions</code>, <code>brave://extensions</code>, <code>opera://extensions</code> or <code>vivaldi://extensions</code>.</li>
+        <li>Turn on <i>Developer mode</i> – top right; in Edge in the panel on the left (under ☰ in a narrow window).</li>
+        <li>Click <i>Load unpacked</i> and choose the folder.</li>
+      </ol>
+      <p>After an update – by hand or by HeMi Launcher – click ⟳ at HeMiTube on the extensions page and reload YouTube. To check a download, run <code>Get-FileHash HeMiTube.zip</code> in PowerShell – the hash must be the same as in <code>SHA256SUMS.txt</code> of the release. <a href="hemilauncher.html">HeMi Launcher</a> unpacks it, opens a short guide in your browser (<i>Add to browser</i>) and puts updates in place.</p>
+    </div>
     <picture class="hero-shot shot" style="display:block;max-width:340px">
       <source media="(prefers-color-scheme: dark)" srcset="assets/hemitube-popup-dark.png?v=1">
-      <img src="assets/hemitube-popup-light.png?v=1" alt="The HeMiTube popup: theatre mode, dislike count, skip sponsors, hide Shorts, automatic quality, speed and codecs" width="340">
+      <img src="assets/hemitube-popup-light.png?v=1" alt="The HeMiTube popup: theater mode, dislike count, skip sponsors, hide Shorts, automatic quality, speed and codecs" width="340">
     </picture>
   </div>
 
   <section>
     <h2>What it does</h2>
     <div class="grid">
-      <div class="card"><h3>Theatre mode</h3><p>The player across the whole page, the top bar hidden until the mouse reaches it – turned on by itself for every video; the ambient glow and the live chat optional.</p></div>
+      <div class="card"><h3>Theater mode</h3><p>The player across the whole page, the top bar hidden until the mouse reaches it – and, if you switch it on, started by itself for every video; the ambient glow and the live chat optional.</p></div>
       <div class="card"><h3>Dislikes back</h3><p>The number of dislikes next to the like button, also on Shorts, optionally a like / dislike bar – from Return YouTube Dislike, read only.</p></div>
       <div class="card"><h3>Quality</h3><p>By default the smallest quality that fills your screen, or a fixed one; a 30 FPS limit; its own quality for videos on other websites.</p></div>
       <div class="card"><h3>Codecs</h3><p>Which video (AV1, VP9, H.264) and audio codecs YouTube may use and in what order – for older or weaker hardware.</p></div>
-      <div class="card"><h3>No Shorts</h3><p>Shorts gone from the home page, subscriptions, search and recommendations; links to Shorts open in the normal player.</p></div>
+      <div class="card"><h3>Hide Shorts</h3><p>Switch it on and Shorts are gone from the home page, subscriptions, search and recommendations; links to Shorts can also open in the normal player.</p></div>
       <div class="card"><h3>When you want more</h3><p>A default speed, skipping sponsors (SponsorBlock), hiding end screens, cards, recommendations or comments, a loop A–B, a screenshot of the video, shortcuts – all off until you turn them on.</p></div>
     </div>
   </section>
@@ -56,8 +66,9 @@
     <h2>Downloads</h2>
     <table class="req">
       <tr><td>HeMiTube.zip</td><td>The extension – unpack it into a folder that stays and load it in the browser (<i>Extensions → Developer mode → Load unpacked</i>).</td></tr>
-      <tr><td>HeMi Launcher</td><td>Or get it with <a href="hemilauncher.html">HeMi Launcher</a> – it unpacks it and updates it in place.</td></tr>
-      <tr><td>Privacy</td><td>No analytics, no telemetry. The dislike count asks Return YouTube Dislike (the video ID and your IP address); skipping sponsors asks SponsorBlock only when turned on – <a href="about.html">details</a>.</td></tr>
+      <tr><td>HeMi Launcher</td><td>Or get it with <a href="hemilauncher.html">HeMi Launcher</a> – it unpacks it and updates it in place (then click ⟳ at HeMiTube on the extensions page).</td></tr>
+      <tr><td>Privacy</td><td>No analytics, no telemetry. The dislike count asks Return YouTube Dislike (the video ID and your IP address); skipping sponsors asks SponsorBlock only when turned on (also in YouTube videos embedded in other websites) – <a href="about.html">details</a>.</td></tr>
+      <tr><td>Changes</td><td><a href="https://github.com/Hemal1k/HeMiTube/releases">All releases with their notes</a></td></tr>
       <tr><td>Problems, ideas</td><td><a href="https://github.com/Hemal1k/HeMiTube/issues">GitHub Issues</a></td></tr>
     </table>
   </section>

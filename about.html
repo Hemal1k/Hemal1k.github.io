@@ -4,20 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy and security – HeMi apps</title>
-  <meta name="description" content="How the HeMi apps work: what they install, what they send over the internet (almost nothing), where they keep their settings, how the downloads are built, checked and signed.">
+  <meta name="description" content="How the HeMi apps work: what they install, what they send over the internet (almost nothing), where they keep their settings, how the downloads are built and how you can check them.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="HeMi">
   <meta property="og:title" content="Privacy and security – HeMi apps">
-  <meta property="og:description" content="How the HeMi apps work: what they install, what they send over the internet (almost nothing), where they keep their settings, how the downloads are built, checked and signed.">
+  <meta property="og:description" content="How the HeMi apps work: what they install, what they send over the internet (almost nothing), where they keep their settings, how the downloads are built and how you can check them.">
   <meta property="og:url" content="https://hemal1k.github.io/about.html">
+  <link rel="canonical" href="https://hemal1k.github.io/about.html">
   <meta property="og:image" content="https://hemal1k.github.io/assets/og-hemi.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg?v=3" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png?v=3" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/favicon-180.png?v=3">
   <script>try{var t=localStorage.getItem("hemi-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
-  <link rel="stylesheet" href="assets/style.css?v=9">
-  <script src="assets/site.js?v=5" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=10">
+  <script src="assets/site.js?v=6" defer></script>
 </head>
 <body>
 <main class="wrap">
@@ -31,7 +32,7 @@
     <h2>The rules all the apps follow</h2>
     <div class="grid">
       <div class="card"><h3>Free and open source</h3><p>Every line of code is public on GitHub under the MIT license. No paid versions, no locked features.</p></div>
-      <div class="card"><h3>No ads, no tracking</h3><p>No analytics, no telemetry, no accounts. Nothing about you or how you use the apps is collected or sent anywhere.</p></div>
+      <div class="card"><h3>No ads, no tracking</h3><p>No analytics, no telemetry, no accounts. The apps connect only where a feature needs it (listed below for each app) – never to collect anything about you or how you use them.</p></div>
     </div>
   </section>
 
@@ -39,17 +40,28 @@
     <h2>What goes over the internet</h2>
     <table class="req">
       <tr><td>HeMi Launcher</td><td>Only <b>GitHub</b>: it asks for the latest releases of the HeMi apps (after its start and every 4 hours, or when you click Refresh) and downloads the installers of the apps you install or update – over HTTPS, without any identifier of you or your PC.</td></tr>
-      <tr><td>HeMiPix</td><td>The photos never leave your PC. Only when you install the free HEIF / HEVC extensions of Microsoft (asked first): winget and the Microsoft Store.</td></tr>
+      <tr><td>HeMiPix</td><td>The photos never leave your PC. Only when you install Microsoft's free HEIF / HEVC extensions (asked first): winget and the Microsoft Store.</td></tr>
       <tr><td>HeMiUnlocker</td><td>Nothing. It never connects to the internet.</td></tr>
       <tr><td>HeMiPad</td><td>Nothing. It never connects to the internet – even the spell check uses the dictionaries already in Windows.</td></tr>
-      <tr><td>HeMiMizer</td><td><b>GitHub</b> at the start – whether a newer HeMiMizer is out (switch it off in Settings → Updates; with HeMi Launcher on the PC it does not ask). Otherwise only what you chose in its wizard: the programs through <b>winget</b> (from their makers and the Microsoft Store), the AMD drivers from amd.com, HeMi Launcher from GitHub. Your backup stays in the folder you chose – nothing of it is sent anywhere.</td></tr>
+      <tr><td>HeMiMizer</td><td><b>GitHub</b> at the start – whether a newer HeMiMizer is out (switch it off in Settings → Updates; with HeMi Launcher on the PC it does not ask). Otherwise only for what you chose:
+        <ul>
+          <li>the programs through <b>winget</b> – from their makers and the Microsoft Store (winget has its own telemetry, run by Microsoft);</li>
+          <li>HeMi Launcher, the other HeMi apps and ArtCraft from <b>GitHub</b>;</li>
+          <li><b>Microsoft</b> – the Visual C++, DirectX and .NET runtimes, winget itself when it is missing, Windows Update and the Microsoft Store; for the tool “Download Windows” microsoft.com (including the session check its download page requires), for “A smaller Windows” msdl.microsoft.com;</li>
+          <li>the AMD drivers from amd.com;</li>
+          <li>a check whether the PC is online (msftconnecttest.com – only a connection, no data);</li>
+          <li>with “Encrypted DNS” switched on (off by default): all DNS queries of the PC go to Cloudflare (1.1.1.1) over HTTPS;</li>
+          <li>your network drives, when you add them.</li>
+        </ul>
+        Your backup stays in the folder you chose – nothing of it is sent anywhere.
+      </td></tr>
       <tr><td>HeMiTube</td><td>
-        On YouTube only, and only for the feature that needs it:
+        On YouTube (and YouTube videos embedded in other websites), and only for the feature that needs it:
         <ul>
           <li><b>Return YouTube Dislike</b> – the dislike count: the ID of the video you open (and, as with any request, your IP address). On by default; turn the module off if you don't want it.</li>
-          <li><b>SponsorBlock</b> – skipping sponsors, only when you turn it on (the browser asks first): the first 4 characters of a SHA-256 hash of the video ID, so the server does not learn what you watch.</li>
+          <li><b>SponsorBlock</b> – skipping sponsors, only when you turn it on (the browser asks first): the first 4 characters of a SHA-256 hash of the video ID – shared by thousands of videos, so the server does not learn exactly which video you watch.</li>
         </ul>
-        No analytics, no telemetry, no remote code; nothing is ever voted or sent.
+        No analytics, no telemetry, no remote code; it never votes and sends nothing else.
       </td></tr>
       <tr><td>HeMi Dark</td><td>Nothing – it is a set of skin files for VLC, not a program.</td></tr>
       <tr><td>HeMiDock</td><td>
@@ -58,10 +70,11 @@
           <li><b>GitHub</b> – once a day it asks whether a new version was released (<i>on</i> by default; Settings → General → Updates). With HeMi Launcher on the PC the launcher does that instead.</li>
           <li><b>Open-Meteo</b> – the weather, only when you switch it on: the city name you type to find it, then only its coordinates.</li>
           <li><b>The European Central Bank</b> – the exchange rates, only when you type a currency conversion into the search (at most twice a day).</li>
-          <li><b>A web page you pin to the dock</b> – its icon, once, when you pin it.</li>
-          <li><b>An internet calendar</b> – only the calendar address you add yourself.</li>
+          <li><b>A web page you pin to the dock</b> – the page and its icon, once, when you pin it.</li>
+          <li><b>An internet calendar</b> – only the calendar address you add yourself, every 15 minutes.</li>
+          <li><b>Microsoft</b> – the .NET and Windows App runtimes, only when they are missing (the installer, or HeMiDock after asking you).</li>
         </ul>
-        All of it over HTTPS, without any identifier of you or your PC.
+        Without any identifier of you or your PC, and over HTTPS – except a pinned web page or an internet calendar whose address you give as <code>http://</code>.
       </td></tr>
     </table>
   </section>
@@ -77,7 +90,7 @@
       <tr><td>HeMi Launcher</td><td><code>%AppData%\HeMi\HeMiLauncher\settings.ini</code>; for the other HeMi apps it notes where it is (<code>HKCU\Software\HeMi\HeMiLauncher</code>) and which updates it found (<code>%LocalAppData%\HeMi\HeMiLauncher</code>).</td></tr>
       <tr><td>HeMiTube</td><td>In your browser's own storage (synced with your browser account if you use sync); export and import as JSON in its settings.</td></tr>
       <tr><td>HeMi Dark</td><td>Installed by HeMi Launcher: <code>%AppData%\vlc\skins\HeMiDark</code>; the skin chosen is written to the settings of VLC (<code>%AppData%\vlc\vlcrc</code> – a copy as it was before is kept next to it).</td></tr>
-      <tr><td>HeMiUnlocker</td><td>Keeps no settings of its own; only the optional File Explorer submenu is written to <code>HKCU\Software\Classes</code> (and, for the notifications of “Unlock”, its name and icon).</td></tr>
+      <tr><td>HeMiUnlocker</td><td>Its look and language in <code>%AppData%\HeMi\HeMiUnlocker\appearance.ini</code>; the optional File Explorer submenu in <code>HKCU\Software\Classes</code> (and, for the notifications of “Unlock”, its name and icon); after <b>Take ownership</b> the previous owners and permissions in <code>%ProgramData%\HeMi\HeMiUnlocker\ownership-undo</code>, so that <b>Undo</b> can put them back.</td></tr>
       <tr><td>The programs</td><td>The installer asks: just for you (<code>%LocalAppData%\Programs\HeMi\&lt;app&gt;</code>, no administrator rights) or for all users (<code>Program Files\HeMi\&lt;app&gt;</code>) – one HeMi folder, like the settings, x64 or ARM64. Uninstalling asks whether to delete the settings or keep them. The portable versions run from any folder.</td></tr>
     </table>
   </section>
@@ -87,15 +100,20 @@
     <ul>
       <li><b>Built in the open.</b> Every download is built by GitHub Actions from the public source of its version – you can see the build log of each release on the Actions page of the project.</li>
       <li><b>Checksums.</b> Each release has a <code>SHA256SUMS.txt</code>. To compare, open PowerShell in the download folder and run <code>Get-FileHash HeMiDock-Setup.exe</code> – the hash must be the same as in the file.</li>
-      <li><b>Updates only from the projects.</b> HeMiDock and HeMi Launcher download updates only from the Releases of the HeMi projects on GitHub, over HTTPS (HeMi Launcher checks every download against <code>SHA256SUMS.txt</code> first), and install them only after you agree (or after you switch on quiet installing in the launcher).</li>
+      <li><b>Updates only from the projects.</b> HeMi Launcher, HeMiDock and HeMiMizer download updates only from the Releases of the HeMi projects on GitHub, over HTTPS, check every download against <code>SHA256SUMS.txt</code> first, and install them only after you agree (or after you switch on automatic installing in HeMi Launcher or HeMiDock).</li>
       <li><b>Windows SmartScreen.</b> The apps are not code-signed (a certificate costs hundreds of euros a year), so Windows can show “Windows protected your PC” the first time. Choose <i>More info → Run anyway</i> – or check the checksum first.</li>
     </ul>
   </section>
 
   <section class="prose">
+    <h2>This website</h2>
+    <p>It is hosted by GitHub Pages – like any web host, GitHub sees your IP address. To show the latest version numbers, your browser asks the GitHub API (<code>api.github.com</code>) at most once an hour. No cookies, no analytics; your browser keeps only the theme you chose and the version numbers (in its local storage).</p>
+  </section>
+
+  <section class="prose">
     <h2>Problems and questions</h2>
     <ul>
-      <li><b>Bugs and ideas:</b> the Issues page of the project (<a href="https://github.com/Hemal1k/HeMiLauncher/issues">HeMi Launcher</a>, <a href="https://github.com/Hemal1k/HeMiDock/issues">HeMiDock</a>, <a href="https://github.com/Hemal1k/HeMiPix/issues">HeMiPix</a>, <a href="https://github.com/Hemal1k/HeMiUnlocker/issues">HeMiUnlocker</a>, <a href="https://github.com/Hemal1k/HeMiPad/issues">HeMiPad</a>, <a href="https://github.com/Hemal1k/HeMiDark/issues">HeMi Dark</a>, <a href="https://github.com/Hemal1k/HeMiMizer/issues">HeMiMizer</a>).</li>
+      <li><b>Bugs and ideas:</b> the Issues page of the project (<a href="https://github.com/Hemal1k/HeMiLauncher/issues">HeMi Launcher</a>, <a href="https://github.com/Hemal1k/HeMiDock/issues">HeMiDock</a>, <a href="https://github.com/Hemal1k/HeMiPix/issues">HeMiPix</a>, <a href="https://github.com/Hemal1k/HeMiUnlocker/issues">HeMiUnlocker</a>, <a href="https://github.com/Hemal1k/HeMiPad/issues">HeMiPad</a>, <a href="https://github.com/Hemal1k/HeMiDark/issues">HeMi Dark</a>, <a href="https://github.com/Hemal1k/HeMiMizer/issues">HeMiMizer</a>, <a href="https://github.com/Hemal1k/HeMiTube/issues">HeMiTube</a>).</li>
       <li><b>A security problem:</b> please report it privately – the Security tab of the project → <i>Report a vulnerability</i> – not as a public issue.</li>
       <li><b>License:</b> MIT – free to use, change and share. The apps come without warranty, so keep a backup of anything important as always.</li>
     </ul>
