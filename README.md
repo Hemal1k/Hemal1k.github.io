@@ -12,3 +12,7 @@ The website of the HeMi apps for Windows: https://hemal1k.github.io – plain HT
 | `assets/sketches.css` | The drawn previews of the apps on their pages |
 | `assets/site.js` | The theme switch, the small animations of the previews and the version badges (from the GitHub API, cached for an hour in the browser) |
 | `assets/*.png`, `assets/favicon.svg` | Icons, the HeMiTube screenshots (`hemitube-popup-*`) and the link previews (`og-*`, 1280 × 640, also the social previews of the repositories) |
+
+## License
+
+[MIT](LICENSE), like the apps.

@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Privacy and security – HeMi apps</title>
   <meta name="description" content="How the HeMi apps work: what they install, what they send over the internet (almost nothing), where they keep their settings, how the downloads are built and how you can check them.">
   <meta property="og:type" content="website">
@@ -107,7 +108,7 @@
 
   <section class="prose">
     <h2>This website</h2>
-    <p>It is hosted by GitHub Pages – like any web host, GitHub sees your IP address. To show the latest version numbers, your browser asks the GitHub API (<code>api.github.com</code>) at most once an hour. No cookies, no analytics; your browser keeps only the theme you chose and the version numbers (in its local storage).</p>
+    <p>It is hosted by GitHub Pages – like any web host, GitHub sees your IP address. To show the latest version numbers, your browser asks the GitHub API (<code>api.github.com</code>) for each app shown on the page at most once an hour – GitHub gets the same as from any visit: your IP address, your browser and that the request comes from this site. No cookies, no analytics; your browser keeps only the theme you chose and the version numbers (in its local storage). On a network shared by many people, GitHub can limit these requests – then the version numbers are simply not shown.</p>
   </section>
 
   <section class="prose">
