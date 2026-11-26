@@ -40,7 +40,7 @@
   <section class="prose" id="internet">
     <h2>What goes over the internet</h2>
     <table class="req">
-      <tr><td>HeMi Launcher</td><td>Only <b>GitHub</b>: it asks for the latest releases of the HeMi apps (after its start and every 4 hours, or when you click Refresh) and downloads the installers of the apps you install or update – over HTTPS, without any identifier of you or your PC.</td></tr>
+      <tr><td>HeMi Launcher</td><td>Only <b>GitHub</b>: it asks for the latest releases of the HeMi apps (after its start and then as often as you set – every 1 to 24 hours –, or when you click Refresh) and downloads the installers of the apps you install or update – over HTTPS, without any identifier of you or your PC.</td></tr>
       <tr><td>HeMiPix</td><td>The photos never leave your PC. Only when you install Microsoft's free HEIF / HEVC extensions (asked first): winget and the Microsoft Store.</td></tr>
       <tr><td>HeMiUnlocker</td><td>Nothing. It never connects to the internet.</td></tr>
       <tr><td>HeMiPad</td><td>Nothing. It never connects to the internet – even the spell check uses the dictionaries already in Windows.</td></tr>
@@ -48,7 +48,7 @@
         <ul>
           <li>the programs through <b>winget</b> – from their makers and the Microsoft Store (winget has its own telemetry, run by Microsoft);</li>
           <li>HeMi Launcher, the other HeMi apps and ArtCraft from <b>GitHub</b>;</li>
-          <li><b>Microsoft</b> – the Visual C++, DirectX and .NET runtimes, winget itself when it is missing, Windows Update and the Microsoft Store; for the tool “Download Windows” microsoft.com (including the session check its download page requires), for “A smaller Windows” msdl.microsoft.com;</li>
+          <li><b>Microsoft</b> – the Visual C++, DirectX and .NET runtimes, winget itself when it is missing, Windows Update and the Microsoft Store; for the tool “Download Windows” microsoft.com (including the session check its download page requires), for “Make a custom Windows ISO” msdl.microsoft.com;</li>
           <li>the AMD drivers from amd.com;</li>
           <li>a check whether the PC is online (msftconnecttest.com – only a connection, no data);</li>
           <li>with “Encrypted DNS” switched on (off by default): all DNS queries of the PC go to Cloudflare (1.1.1.1) over HTTPS;</li>
@@ -87,7 +87,7 @@
       <tr><td>HeMiDock</td><td><code>%AppData%\HeMi\HeMiDock</code> – settings, pinned apps, workspaces, backups of the settings; a log only while you switch on debug mode in its settings (it stays on your PC, nothing is sent).</td></tr>
       <tr><td>HeMiPix</td><td><code>%AppData%\HeMi\HeMiPix\settings.ini</code>; the photos it makes go where you choose (next to the originals by default).</td></tr>
       <tr><td>HeMiPad</td><td><code>%AppData%\HeMi\HeMiPad\settings.ini</code></td></tr>
-      <tr><td>HeMiMizer</td><td>Everything in the folder <code>HeMiMizer data</code> next to <code>HeMiMizer.exe</code>: the backup (settings, installers, your folders). HeMiMizer writes no log. <b>Done</b> at the end removes HeMiMizer and everything it put on the new PC – nothing of it stays.</td></tr>
+      <tr><td>HeMiMizer</td><td>Everything in the folder <code>HeMiMizer data</code> next to <code>HeMiMizer.exe</code>: the backup (settings, installers, your folders). Its own settings are in <code>%AppData%\HeMi\HeMiMizer</code>; a log only when you turn on Logging in its settings. <b>Done</b> at the end removes HeMiMizer and everything it put on the new PC – nothing of it stays.</td></tr>
       <tr><td>HeMi Launcher</td><td><code>%AppData%\HeMi\HeMiLauncher\settings.ini</code>; for the other HeMi apps it notes where it is (<code>HKCU\Software\HeMi\HeMiLauncher</code>) and which updates it found (<code>%LocalAppData%\HeMi\HeMiLauncher</code>).</td></tr>
       <tr><td>HeMiTube</td><td>In your browser's own storage (synced with your browser account if you use sync); export and import as JSON in its settings.</td></tr>
       <tr><td>HeMi Dark</td><td>Installed by HeMi Launcher: <code>%AppData%\vlc\skins\HeMiDark</code>; the skin chosen is written to the settings of VLC (<code>%AppData%\vlc\vlcrc</code> – a copy as it was before is kept next to it).</td></tr>
