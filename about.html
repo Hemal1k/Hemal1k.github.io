@@ -82,12 +82,12 @@
 
   <section class="prose">
     <h2>Where your settings are</h2>
-    <p>Everything stays on your PC, in your user profile:</p>
+    <p>Everything stays on your PC, in your user profile. HeMiPix, HeMiPad, HeMiUnlocker, HeMiMizer and HeMi Launcher write a log only when you turn on Logging in their settings: <code>log.txt</code> in the same folder, at most 1 MB, with your user folder written as <code>%USERPROFILE%</code>.</p>
     <table class="req">
       <tr><td>HeMiDock</td><td><code>%AppData%\HeMi\HeMiDock</code> – settings, pinned apps, workspaces, backups of the settings; a log only while you switch on debug mode in its settings (it stays on your PC, nothing is sent).</td></tr>
       <tr><td>HeMiPix</td><td><code>%AppData%\HeMi\HeMiPix\settings.ini</code>; the photos it makes go where you choose (next to the originals by default).</td></tr>
       <tr><td>HeMiPad</td><td><code>%AppData%\HeMi\HeMiPad\settings.ini</code></td></tr>
-      <tr><td>HeMiMizer</td><td>Everything in the folder <code>HeMiMizer data</code> next to <code>HeMiMizer.exe</code>: the backup (settings, installers, your folders). Its own settings are in <code>%AppData%\HeMi\HeMiMizer</code>; a log only when you turn on Logging in its settings. <b>Done</b> at the end removes HeMiMizer and everything it put on the new PC – nothing of it stays.</td></tr>
+      <tr><td>HeMiMizer</td><td>Everything in the folder <code>HeMiMizer data</code> next to <code>HeMiMizer.exe</code>: the backup (settings, installers, your folders). Its own settings (and its log) are in <code>%AppData%\HeMi\HeMiMizer</code>. <b>Done</b> at the end removes HeMiMizer and everything it put on the new PC – nothing of it stays.</td></tr>
       <tr><td>HeMi Launcher</td><td><code>%AppData%\HeMi\HeMiLauncher\settings.ini</code>; for the other HeMi apps it notes where it is (<code>HKCU\Software\HeMi\HeMiLauncher</code>) and which updates it found (<code>%LocalAppData%\HeMi\HeMiLauncher</code>).</td></tr>
       <tr><td>HeMiTube</td><td>In your browser's own storage (synced with your browser account if you use sync); export and import as JSON in its settings.</td></tr>
       <tr><td>HeMi Dark</td><td>Installed by HeMi Launcher: <code>%AppData%\vlc\skins\HeMiDark</code>; the skin chosen is written to the settings of VLC (<code>%AppData%\vlc\vlcrc</code> – a copy as it was before is kept next to it).</td></tr>
