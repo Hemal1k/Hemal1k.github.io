@@ -82,7 +82,7 @@
 
   <section class="prose">
     <h2>Where your settings are</h2>
-    <p>Everything stays on your PC, in your user profile. HeMiPix, HeMiPad, HeMiUnlocker, HeMiMizer and HeMi Launcher write a log only when you turn on Logging in their settings: <code>log.txt</code> in the same folder, at most 1 MB, with your user folder written as <code>%USERPROFILE%</code>.</p>
+    <p>Everything stays on your PC, in your user profile. HeMiPix, HeMiPad, HeMiUnlocker, HeMiMizer and HeMi Launcher write a log only when you turn on Logging in their settings (HeMiDock: debug mode) – without it no log file is made at all. The log is one file a day in the <code>Logs</code> folder next to the settings (<code>log-2026-11-28.txt</code>, a new part after 1 MB), kept for a week, with your user folder written as <code>%USERPROFILE%</code> and nothing personal in it.</p>
     <table class="req">
       <tr><td>HeMiDock</td><td><code>%AppData%\HeMi\HeMiDock</code> – settings, pinned apps, workspaces, backups of the settings; a log only while you switch on debug mode in its settings (it stays on your PC, nothing is sent).</td></tr>
       <tr><td>HeMiPix</td><td><code>%AppData%\HeMi\HeMiPix\settings.ini</code>; the photos it makes go where you choose (next to the originals by default).</td></tr>
